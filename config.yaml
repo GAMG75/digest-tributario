@@ -1,0 +1,47 @@
+# ─── Digest Tributario Chile — Configuración ──────────────────────────────
+
+# Destinatarios del reporte diario
+recipients:
+  - abogado1@tudominio.cl
+  - abogado2@tudominio.cl
+  # Agregar todos los correos necesarios
+
+# Período de lookback: cuántos días atrás revisar (para evitar duplicados)
+# En la primera ejecución se recomienda 30 días; luego dejarlo en 7
+days_lookback: 7
+
+# ── SII — Configuración ────────────────────────────────────────────────────
+sii:
+  enabled: true
+  sections:
+    circulares: true
+    resoluciones: true
+    jurisprudencia: true   # Incluye oficios y pronunciamientos
+  max_items_per_section: 20
+
+# ── TTA — www.tta.cl ──────────────────────────────────────────────────────
+tta:
+  enabled: true
+  use_playwright: true     # Recomendado para capturar contenido dinámico
+  days_lookback: 7         # Días hacia atrás a revisar
+
+# ── PJUD — Configuración ──────────────────────────────────────────────────
+pjud:
+  enabled: true
+  use_playwright: true     # false = solo HTML estático (menos resultados)
+  sections:
+    tta: true              # Tribunales Tributarios y Aduaneros
+    cortes_apelaciones: true
+    corte_suprema: true
+  # Términos de búsqueda para filtrar sentencias tributarias
+  terminos_busqueda:
+    - "tributario IVA"
+    - "impuesto renta SII"
+    - "código tributario"
+    - "fiscalización contribuyente"
+
+# ── Email ─────────────────────────────────────────────────────────────────
+email:
+  subject: "📋 Novedades Tributarias Chile"
+  # Solo enviar si hay novedades (true recomendado para no recibir emails vacíos)
+  only_if_new: true

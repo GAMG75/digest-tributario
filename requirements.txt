@@ -1,0 +1,11 @@
+anthropic>=0.30.0
+httpx>=0.27.0
+beautifulsoup4>=4.12.0
+feedparser>=6.0.11
+python-dotenv>=1.0.0
+pyyaml>=6.0.1
+lxml>=5.2.0
+
+# Para scraping de sitios JS-heavy (PJUD OJV)
+# Descomentar e instalar con: pip install playwright && playwright install chromium
+playwright>=1.44.0
