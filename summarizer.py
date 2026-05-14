@@ -79,6 +79,8 @@ class TributaryReportSummarizer:
                     doc_lines.append(f"  {k.upper()}: {str(v)[:300]}")
             docs_txt.append("\n".join(doc_lines))
 
+        separador = "\n\n---\n\n"
+        docs_joined = separador.join(docs_txt)
         prompt = f"""Analiza los siguientes {len(items)} documento(s) de la sección "{titulo}" y genera:
 
 1. Un resumen ejecutivo de cada documento (qué establece, impacto, relevancia)
@@ -86,9 +88,7 @@ class TributaryReportSummarizer:
 3. Si aplica: alertas sobre cambios de criterio, nuevas obligaciones o riesgos fiscales
 
 DOCUMENTOS A ANALIZAR:
-separador = "\n\n---\n\n"
-        docs_joined = separador.join(docs_txt)
-        prompt = f"""Analiza los siguientes {len(items)} documento(s) de la sección "{titulo}" y genera:
+{docs_joined}"""
 
         try:
             response = self.client.messages.create(
