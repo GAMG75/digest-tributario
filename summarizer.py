@@ -86,7 +86,9 @@ class TributaryReportSummarizer:
 3. Si aplica: alertas sobre cambios de criterio, nuevas obligaciones o riesgos fiscales
 
 DOCUMENTOS A ANALIZAR:
-{'\\n\\n---\\n\\n'.join(docs_txt)}"""
+separador = "\n\n---\n\n"
+        docs_joined = separador.join(docs_txt)
+        prompt = f"""Analiza los siguientes {len(items)} documento(s) de la sección "{titulo}" y genera:
 
         try:
             response = self.client.messages.create(
