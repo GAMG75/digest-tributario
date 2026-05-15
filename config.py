@@ -13,8 +13,10 @@ def load_config(path: str = "config.yaml") -> dict:
     config["gmail_user"] = os.environ["GMAIL_USER"]
     config["gmail_password"] = os.environ["GMAIL_APP_PASSWORD"]
 
-    if not config.get("recipients"):
-        raw = os.environ.get("RECIPIENTS", "")
-        config["recipients"] = [r.strip() for r in raw.split(",") if r.strip()]
+    recipients_env = os.environ.get("RECIPIENTS", "")
+    if recipients_env:
+        config["recipients"] = [r.strip() for r in recipients_env.split(",") if r.strip()]
+    elif not config.get("recipients"):
+        config["recipients"] = []
 
     return config
