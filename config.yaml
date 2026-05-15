@@ -2,8 +2,7 @@
 
 # Destinatarios del reporte diario
 recipients:
-  - abogado1@tudominio.cl
-  - abogado2@tudominio.cl
+  - gerardo.montes@gandarillas.cl
   # Agregar todos los correos necesarios
 
 # Período de lookback: cuántos días atrás revisar (para evitar duplicados)
