@@ -22,6 +22,7 @@ jobs:
 
       - name: Instalar dependencias
         run: pip install -r requirements.txt
+        pip cache purge
 
       - name: Instalar Chromium
         run: playwright install chromium --with-deps
