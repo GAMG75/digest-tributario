@@ -32,9 +32,9 @@ MESES = {
 }
 
 URLS_SII = {
-    "circulares": f"{BASE_URL}/normativa_legislacion/circulares/2025/indcir2025.htm",
-    "resoluciones": f"{BASE_URL}/normativa_legislacion/resoluciones/2025/res_ind2025.htm",
-    "jurisprudencia": f"{BASE_URL}/normativa_legislacion/jurisprudencia_administrativa/2025/index.html",
+    "circulares": f"{BASE_URL}/normativa_legislacion/circulares/2026/indcir2026.htm",
+    "resoluciones": f"{BASE_URL}/normativa_legislacion/resoluciones/2026/res_ind2026.htm",
+    "jurisprudencia": f"{BASE_URL}/normativa_legislacion/jurisprudencia_administrativa/2026/index.html",
 }
 
 
