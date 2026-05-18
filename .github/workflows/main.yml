@@ -18,12 +18,11 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-          cache: pip
 
       - name: Instalar dependencias
         run: |
-          pip install -r requirements.txt
-          pip cache purge
+          cd digest-tributario
+          pip install -r requirements.txt --break-system-packages || pip install -r requirements.txt
 
       - name: Instalar Chromium
         run: playwright install chromium --with-deps
@@ -34,19 +33,14 @@ jobs:
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
           RECIPIENTS: ${{ secrets.RECIPIENTS }}
-        run: python main.py
-
-      - name: Guardar estado
-        uses: actions/cache@v4
-        with:
-          path: state.json
-          key: digest-state-${{ github.run_id }}
-          restore-keys: digest-state-
+        run: |
+          cd digest-tributario
+          python main.py
 
       - name: Subir logs
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: logs-${{ github.run_id }}
-          path: logs/
+          path: digest-tributario/logs/
           retention-days: 14
