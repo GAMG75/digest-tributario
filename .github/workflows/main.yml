@@ -20,7 +20,7 @@ jobs:
           python-version: '3.11'
           cache: pip
 
-      - - name: Instalar dependencias
+      - name: Instalar dependencias
         run: |
           pip install -r requirements.txt
           pip cache purge
